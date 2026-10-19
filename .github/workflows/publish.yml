@@ -1,0 +1,50 @@
+name: Publish
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - Max_Zhang_Resume.yaml
+      - pyproject.toml
+      - uv.lock
+      - scripts/**
+      - .github/workflows/publish.yml
+  pull_request:
+    paths:
+      - Max_Zhang_Resume.yaml
+      - pyproject.toml
+      - uv.lock
+      - scripts/**
+      - .github/workflows/publish.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: resume-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  resume:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: astral-sh/setup-uv@v10.3.0
+        with:
+          python-version: "3.12"
+          enable-cache: true
+      - name: Render pull request preview
+        if: github.event_name == 'pull_request'
+        run: uv run --locked scripts/publish_resume.py
+      - name: Render and publish latest resume
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+          R2_BUCKET: resume
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+        run: uv run --locked scripts/publish_resume.py --upload
