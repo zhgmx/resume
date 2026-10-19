@@ -1,0 +1,140 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/rendercv/rendercv/refs/tags/v2.8/schema.json
+cv:
+  name: Max Zhang
+  email: mx@zhgmx.com
+  website: "https://zhgmx.com/"
+  social_networks:
+    - network: LinkedIn
+      username: zhgmx
+    - network: GitHub
+      username: zhgmx
+  sections:
+    EDUCATION:
+      - institution: Stony Brook University
+        area: "Undergraduate Student (Expected May 2030)"
+        start_date: 2026-09
+        end_date: 2030-05
+        location: Stony Brook, NY
+        highlights:
+          - "Intended Major: Computer Science"
+          - "Relevant Coursework (in progress): Object-Oriented Programming, Applied Calculus I."
+
+    EXPERIENCE:
+      - company: Stony Brook University – Enrollment Management
+        position: Project Student Assistant
+        start_date: 2026-10
+        end_date: present
+        location: Stony Brook, NY
+        highlights:
+          - Proofread content in Technolutions Slate and review academic program forms and web content for an enrollment management team at a university serving 27,700+ students.
+      - company: Virtuos Games – ERP Department
+        position: Software Engineer Intern
+        start_date: 2026-07
+        end_date: 2026-08
+        location: Shanghai, China
+        highlights:
+          - Built a full-stack business-requirements management application using Next.js, SQL Server, and AI-assisted development for employees and stakeholders across the organization.
+          - Added automated tests and combined code-quality checks with manual and LLM-assisted reviews to identify implementation issues and improve maintainability.
+      - company: Assessment Solutions, LLC.
+        position: Web Developer & Technical Consultant
+        start_date: 2025-11
+        end_date: 2026-05
+        location: New York, NY
+        highlights:
+          - Built and deployed the website for an education research and evaluation consultancy serving 30+ partner organizations.
+          - Managed post-launch content updates, deployments, and technical support as services evolved.
+
+    SELECTED PROJECTS:
+      - name: "[LibreWave](https://github.com/zhgmx/LibreWave)"
+        technologies: Rust, Linux, ALSA, PipeWire, USB, GPUI
+        summary: Linux-native audio control and mixing software for Elgato Wave hardware.
+        highlights:
+          - Built a Linux audio-control application for Elgato Wave:3 with a Rust daemon, CLI, and native interface supporting hardware controls and independent monitor and stream mixes.
+          - Implemented reverse-engineered USB controls with device-state validation, readback verification, and rollback on failed writes.
+          - Developed a 48 kHz audio mixer with allocation-free processing, integrating ALSA audio I/O, PipeWire routing, and persistent profiles.
+      - name: "[OpenUtils](https://github.com/zhgmx/OpenUtils)"
+        technologies: Java, Minecraft Forge, Mixin
+        summary: Modular Minecraft client mod with customizable HUD tools and gameplay utilities.
+        highlights:
+          - Built a modular Minecraft client mod with 32 feature modules, configurable feature lifecycles, and a drag-and-drop HUD editor with persistent layouts.
+          - Published 21 releases with 670 Forge-JAR downloads.
+
+    SKILLS:
+      - label: Languages
+        details: TypeScript, JavaScript, Java, Kotlin, Rust, SQL
+      - label: Web & Frameworks
+        details: React, Next.js, SvelteKit, Vite, Tailwind CSS, Express, Node.js, Bun
+      - label: Tools & Platforms
+        details: Git, Docker, Podman, Cloudflare, Tailscale, Linux, Technolutions Slate
+      - label: Databases
+        details: Microsoft SQL Server, SQLite
+      - label: Testing & Development
+        details: Automated testing, code review, AI-assisted development
+
+design:
+  theme: sb2nov
+  page:
+    top_margin: 0.5in
+    bottom_margin: 0.5in
+    left_margin: 0.5in
+    right_margin: 0.5in
+    show_top_note: false
+    show_footer: false
+  typography:
+    # line_spacing: 0.35em
+    font_family:
+      body: Libertinus Serif
+      name: Libertinus Serif
+      headline: Libertinus Serif
+      connections: Libertinus Serif
+      section_titles: Libertinus Serif
+    font_size:
+      body: 11pt
+      name: 16pt
+      headline: 11pt
+      connections: 11pt
+      section_titles: 11pt
+    bold:
+      name: true
+      section_titles: true
+  header:
+    alignment: center
+    space_below_name: 0.25cm
+    space_below_connections: 0.5cm
+    connections:
+      separator: •
+      show_icons: false
+      display_urls_instead_of_usernames: true
+      hyperlink: true
+      space_between_connections: 0.25cm
+  sections:
+    space_between_regular_entries: 0.35em
+    space_between_text_based_entries: 0.35em
+  entries:
+    summary:
+      space_above: 0cm
+    highlights:
+      space_above: 0cm
+      space_between_items: 0cm
+  templates:
+    education_entry:
+      main_column: |-
+        **INSTITUTION**
+        *AREA*
+        SUMMARY
+        HIGHLIGHTS
+    normal_entry:
+      main_column: |-
+        **NAME** | TECHNOLOGIES
+        SUMMARY
+        HIGHLIGHTS
+
+settings:
+  current_date: 2026-10-19
+  pdf_title: "Max Zhang - Resume"
+  render_command:
+    typst_path: OUTPUT_FOLDER/NAME_IN_SNAKE_CASE_Resume.typ
+    pdf_path: OUTPUT_FOLDER/NAME_IN_SNAKE_CASE_Resume.pdf
+    markdown_path: OUTPUT_FOLDER/NAME_IN_SNAKE_CASE_Resume.md
+    html_path: OUTPUT_FOLDER/NAME_IN_SNAKE_CASE_Resume.html
+    png_path: OUTPUT_FOLDER/NAME_IN_SNAKE_CASE_Resume.png
